@@ -66,7 +66,8 @@ export const verifyEmail = async (req, res) => {
      res.cookie("authToken", authtoken, {
        path: '/', 
        secure: true, 
-       sameSite: isProduction ?'none' : 'lax'
+       sameSite: isProduction ?'none' : 'lax',
+       domain:process.env.FRONT_URL
       })
       res.status(200).json({ success: true, message: "Email verified successfully!" })
   }
@@ -107,7 +108,8 @@ export const loginUser = async (req, res) => {
       res.cookie("authToken", token, {
         path: '/', 
         secure: true, 
-        sameSite: isProduction ?'none' : 'lax'
+        sameSite: isProduction ?'none' : 'lax',
+        domain:process.env.FRONT_URL
       });
   
       res.status(200).json({
