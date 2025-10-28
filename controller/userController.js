@@ -63,13 +63,13 @@ export const verifyEmail = async (req, res) => {
      );
      const isProduction = process.env.NODE_ENV === "production"
  
-     res.cookie("authToken", authtoken, {
-       path: '/', 
-       secure: true, 
-       sameSite: isProduction ?'none' : 'lax',
-       domain:".pix-cove-frontend.vercel.app"
-      })
-      res.status(200).json({ success: true, message: "Email verified successfully!" })
+    //  res.cookie("authToken", authtoken, {
+    //    path: '/', 
+    //    secure: true, 
+    //    sameSite: isProduction ?'none' : 'lax',
+    //    domain:".pix-cove-frontend.vercel.app"
+    //   })
+      res.status(200).json({ success: true, message: "Email verified successfully!",token })
   }
 
   } catch (error) {
@@ -105,19 +105,21 @@ export const loginUser = async (req, res) => {
       );
       const isProduction = process.env.NODE_ENV === "production"
 
-      res.cookie("authToken", token, {
-        httpOnly: true,
-        path: '/', 
-        secure: true, 
-        sameSite: isProduction ?'none' : 'lax',
-        domain:".pix-cove-frontend.vercel.app"
-      });
+      // res.cookie("authToken", token, {
+      //   httpOnly: true,
+      //   path: '/', 
+      //   secure: true, 
+      //   sameSite: isProduction ?'none' : 'lax',
+      //   domain:".pix-cove-frontend.vercel.app"
+      // });
   
       res.status(200).json({
         success:true,
         message: "Login successful",
+        token,
         user: {
           email: user.email,
+          
         },
         
       });

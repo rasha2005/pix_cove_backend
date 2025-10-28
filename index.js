@@ -12,7 +12,7 @@ app.use(cookieParser());
 dotenv.config();
 
 app.use(cors({
-  origin: '*', 
+  origin: process.env.FRONT_URL, 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
