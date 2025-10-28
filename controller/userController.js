@@ -67,7 +67,7 @@ export const verifyEmail = async (req, res) => {
        path: '/', 
        secure: true, 
        sameSite: isProduction ?'none' : 'lax',
-       domain:process.env.FRONT_URL_NAME
+       domain:".pix-cove-frontend.vercel.app"
       })
       res.status(200).json({ success: true, message: "Email verified successfully!" })
   }
@@ -110,7 +110,7 @@ export const loginUser = async (req, res) => {
         path: '/', 
         secure: true, 
         sameSite: isProduction ?'none' : 'lax',
-        domain:process.env.FRONT_URL_NAME
+        domain:".pix-cove-frontend.vercel.app"
       });
   
       res.status(200).json({
